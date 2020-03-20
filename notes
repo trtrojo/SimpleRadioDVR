@@ -1,1 +1,6 @@
 https://realpython.com/intro-to-python-threading/
+
+Radio_scheduler
+    -take an endpoint eg: http://localhost:8000/wnyc
+    -schedules recordings to mp3
+    - (Future) binds recordings to 24hr scehdule

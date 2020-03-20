@@ -1,6 +1,7 @@
 #Simple Radio Server
 #A multithreaded application to record and serve a shoutcast radio stream from an SDR
 # =( Coronavirus
+import os
 import threading
 import time
 import requests #Maybe i wont use this
@@ -9,6 +10,7 @@ import logging
 
 
 #class recordHour(threading.Thread):
+
 def thread_function(name):
     logging.info("Thread %s: starting", name)
     time.sleep(2)
