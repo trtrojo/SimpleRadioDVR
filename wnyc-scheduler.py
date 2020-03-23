@@ -4,29 +4,36 @@
 import os
 import threading
 import time
+import datetime
 import requests #Maybe i wont use this
 import config
 import logging
 import random
 
 class radio_scheduler(threading.Thread):
-    def run(self,endpoint):
+    def run(self):
         #endpoint = "http://localhost:8000/wnyc"
         print("Started recording at: " + endpoint)
         print(threading.currentThread().getName())
         print(random.randint(0,10) + random.randint(0,10))
         time.sleep(10)
 
+    def recording_thread(self):
+        start_time = datetime.datetime.now().strftime("%y%m%d-%H%M%S")
+        kill_time = time.time #next hour
+        proc = subprocess.Popen("curl http://localhost:8000/wnyc > " )
+        while (time.time <= kill_time) {
+            #do_nothing
+        }
+        proc.kill()
+
+
+
+
+
 
 def main():
-    wnyc_tread = radio_scheduler(name = "wnyc", target="run", kwargs={"endpoint":"http://localhost:8000/wnyc"} )
-    wnyc_tread.start()
-    #for x in range(15):                                   
-        #mythread = radio_scheduler(name = "Thread-{}".format(x))
-     #   mythread = radio_scheduler(target="run",args=(1,"http://localhost:8000/wnyc"))
-      #  mythread.start()
-        #mythread.run("http://localhost:8000/wnyc")                                   
-        #time.sleep(.1)                                   
+    endpoint = "http://localhost:8000/wnyc"
 
 if __name__ == '__main__':
     main()
