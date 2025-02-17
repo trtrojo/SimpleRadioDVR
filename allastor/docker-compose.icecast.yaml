@@ -1,0 +1,15 @@
+services:
+  icecast2:
+    image: pltnk/icecast2:latest  # Using an external image
+    ports:
+      - 8000:8000 # "1234:80"  # Map host port 1234 to container port 80
+    volumes:
+      - ./icecast.xml:/etc/icecast2/icecast.xml  # Mount a single file (read-only)
+
+  liquidsoap:
+    image: pltnk/liquidsoap:latest  # Using an external image
+    ports:
+      - 8001-8006:8001-8006
+    volumes:
+      - ./liquidsoap.liq:/etc/liquidsoap/script.liq  # Mount a single file (read-only)
+      - ./workspace:/workspace
